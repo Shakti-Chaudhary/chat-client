@@ -19,14 +19,30 @@ function App() {
     checkAuth();
   }, [checkAuth]);
 
-  if (isCheckingAuth && !validUser)
+  if (isCheckingAuth && !validUser) {
     return (
-      <div className={`flex items-center justify-center h-screen dark `}>
-        <div className="h-full w-full dark:bg-grey-800 dark:text-white">
-          <Loader className="size-10 animate-spin" />
+      <div
+        className={`flex items-center justify-center min-h-screen w-full transition-colors duration-500 ${
+          theme === "dark" ? "bg-slate-950" : "bg-slate-50"
+        }`}
+      >
+        <div className="relative flex flex-col items-center gap-4">
+          {/* Subtle Outer Glow */}
+          <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full s-24 animate-pulse" />
+
+          {/* Main Loader Container */}
+          <div className="relative p-6 bg-white/10 dark:bg-black/20 backdrop-blur-md rounded-2xl border border-white/20 dark:border-white/5 shadow-2xl">
+            <Loader className="size-12 animate-spin text-blue-600 dark:text-blue-400" />
+          </div>
+
+          {/* Loading Text */}
+          <p className="text-sm font-medium tracking-widest uppercase animate-pulse text-slate-500 dark:text-slate-400">
+            Authenticating
+          </p>
         </div>
       </div>
     );
+  }
 
   return (
     <div className={`min-h-screen ${theme} -z-10 bg-gray-100 `}>
