@@ -46,15 +46,8 @@ const LoginPage = () => {
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Mail className="h-5 w-5 text-base-content/40 text-gray-300 dark:text-gray-400" />
                 </div>
-                <input
-                  type="email"
-                  className={`input input-bordered w-full pl-10 py-2 text-gray-600 rounded-xl dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40`}
-                  placeholder="you@example.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                />
+                <input type="email" className={`input input-bordered w-full pl-10 py-2 text-gray-600 rounded-xl dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40`}
+                  placeholder="you@example.com" value={formData.email}  onChange={(e) =>  setFormData({ ...formData, email: e.target.value }) }  />
               </div>
             </div>
 
@@ -66,64 +59,30 @@ const LoginPage = () => {
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Lock className="h-5 w-5 text-base-content/40 text-gray-300 dark:text-gray-400 " />
                 </div>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  className={`input input-bordered w-full pl-10 text-gray-600 rounded-xl py-2 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40`}
-                  placeholder="••••••••"
-                  value={formData.password}
-                  onChange={(e) =>
-                    setFormData({ ...formData, password: e.target.value })
-                  }
-                />
-                <button
-                  type="button"
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <EyeOff className="h-5 w-5 text-base-content/40 text-gray-300 dark:text-gray-400" />
-                  ) : (
-                    <Eye className="h-5 w-5 text-base-content/40 text-gray-400 dark:text-gray-500" />
-                  )}
+                <input  type={showPassword ? "text" : "password"} className={`input input-bordered w-full pl-10 text-gray-600 rounded-xl py-2 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40`}
+                  placeholder="••••••••"   value={formData.password}  onChange={(e) => setFormData({ ...formData, password: e.target.value }) }  />
+                <button  type="button"   className="absolute inset-y-0 right-0 pr-3 flex items-center" onClick={() => setShowPassword(!showPassword)}  >
+                  {showPassword ? ( <EyeOff className="h-5 w-5 text-base-content/40 text-gray-300 dark:text-gray-400" />  ) : (  <Eye className="h-5 w-5 text-base-content/40 text-gray-400 dark:text-gray-500" /> )}
                 </button>
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-primary w-full bg-blue-900 py-2 rounded-xl"
-              disabled={isLoggingIn}
-            >
-              {isLoggingIn ? (
-                <>
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                  Loading...
-                </>
-              ) : (
-                "Sign in"
-              )}
+            <button  type="submit" className="btn btn-primary w-full flex items-center justify-center bg-blue-900 py-2 rounded-xl"  disabled={isLoggingIn}  >
+              {isLoggingIn ? ( <>  <Loader2 className="h-5 w-5 animate-spin" />   Loading...  </> ) : (  "Sign in" )}
             </button>
           </form>
 
           <div className="text-center">
             <p className="text-base-content/60">
               Don&apos;t have an account?{" "}
-              <Link to="/signup" className=" text-blue-900 font-bold">
-                Create account
-              </Link>
+              <Link to="/signup" className=" text-blue-900 font-bold underline"> Create account </Link>
             </p>
           </div>
         </div>
       </div>
 
       {/* Right Side - splash screen */}
-      <AuthImagePattern
-        path="login"
-        title={"Welcome to iMessage!"}
-        subtitle={
-          "Sign in to continue your conversations and catch up with your messages."
-        }
-      />
+      <AuthImagePattern path="login" title={"Welcome to iMessage!"} subtitle={ "Sign in to continue your conversations and catch up with your messages." } />
     </div>
   );
 };

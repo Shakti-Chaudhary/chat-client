@@ -12,17 +12,11 @@ const Navbar = () => {
   };
 
   return (
-    <header
-      className=" w-full  top-0 z-40  
-    backdrop-blur-lg  rounded-lg shadow-xl mt-2 dark:bg-gray-300"
-    >
+    <header className=" w-full top-0 z-40 backdrop-blur-lg  rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.25)] mt-2 dark:bg-gray-300">
       <div className="  w-full px-2 sm:px-4 h-12 sm:h-14">
         <div className="flex items-center justify-between h-full">
           <div className="flex items-center gap-8">
-            <Link
-              to="/"
-              className="flex items-center gap-2.5 hover:opacity-80 transition-all"
-            >
+            <Link to="/" className="flex items-center gap-2.5 hover:opacity-80 transition-all"  >
               <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
                 <img src="/logo.svg" alt="logo" className="w-full" />
               </div>
@@ -33,35 +27,19 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <button
-              className={`
-              btn  gap-2 transition-colors flex bg-blue-600 hover:bg-blue-500 p-2 rounded-full text-white
-               `}
-              onClick={() => {
-                changeTheme();
-              }}
-            >
-              {theme === "dark" ? (
-                <SunIcon className="w-6 h-6 " />
-              ) : (
-                <MoonIcon className="size-6 " />
-              )}
+            <button className={` btn  gap-2 transition-colors flex bg-blue-600 hover:bg-blue-500 p-2 rounded-full text-white `}
+              onClick={() => { changeTheme(); }} >
+              {theme === "dark" ? (  <SunIcon className="w-6 h-6 " />  ) : ( <MoonIcon className="size-6 " /> )}
             </button>
 
             {validUser && (
               <>
-                <Link
-                  to={"/profile"}
-                  className={`btn btn-sm gap-2 flex sm:px-4 bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-white`}
-                >
+                <Link to={"/profile"} className={`btn btn-sm gap-2 flex sm:px-4 bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-white`} >
                   <User className="size-6" />
                   <span className="hidden sm:inline">Profile</span>
                 </Link>
 
-                <button
-                  className="flex gap-2 items-center sm:px-4 bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-white"
-                  onClick={handleLogout}
-                >
+                <button className="flex gap-2 items-center sm:px-4 bg-blue-600 hover:bg-blue-500 p-2 rounded-md text-white" onClick={handleLogout}  >
                   <LogOut className="size-5" />
                   <span className="hidden sm:inline">Logout</span>
                 </button>
